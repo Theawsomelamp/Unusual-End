@@ -19,6 +19,8 @@ public class CustomCollisionBlock extends Block {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
+    // Probably best to separate this into 2 blocks
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if (state.isOf(ModBlocks.SPECTRAL_BLOCK))
             return ((EntityShapeContext) context).getEntity() instanceof PlayerEntity ? VoxelShapes.empty() : getOutlineShape(state, world, pos, context);
@@ -28,11 +30,13 @@ public class CustomCollisionBlock extends Block {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return Block.createCuboidShape(0.5, 0.5, 0.5, 15.5, 15.5, 15.5);
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (state.isOf(ModBlocks.SPECTRAL_BLOCK) && entity instanceof PlayerEntity player)
             player.fallDistance = 0;

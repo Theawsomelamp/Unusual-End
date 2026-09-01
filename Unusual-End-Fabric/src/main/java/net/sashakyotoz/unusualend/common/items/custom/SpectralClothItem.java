@@ -19,8 +19,6 @@ import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.sashakyotoz.unusualend.common.effects.ModEffects;
-import net.sashakyotoz.unusualend.common.networking.IEntityDataSaver;
-import net.sashakyotoz.unusualend.common.networking.data.ClothOverlayValuesHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -42,7 +40,6 @@ public class SpectralClothItem extends Item {
         ItemStack stack = user.getStackInHand(hand);
         user.swingHand(hand);
         if (user instanceof ServerPlayerEntity player) {
-            ClothOverlayValuesHandler.add((IEntityDataSaver) player, 1200);
             player.getServer().getCommandManager().executeWithPrefix(new ServerCommandSource(CommandOutput.DUMMY, new Vec3d(player.getX(), player.getY(), player.getZ()), Vec2f.ZERO, player.getServerWorld(), 4, "", Text.literal(""), player.getServer(), null).withSilent(),
                     "particle dust_color_transition 0.827 0.216 0.741 1.5 0.047 0.047 0.047 ~ ~1 ~ 0.4 0.5 0.4 0 40 normal");
         }

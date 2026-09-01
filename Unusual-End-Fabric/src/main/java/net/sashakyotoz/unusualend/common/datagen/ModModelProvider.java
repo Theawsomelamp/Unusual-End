@@ -3,6 +3,7 @@ package net.sashakyotoz.unusualend.common.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.ArmorItem;
@@ -34,8 +35,8 @@ public class ModModelProvider extends FabricModelProvider {
             generator.registerLog(block).log(block);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.CROSS))
             generator.registerTintableCross(block, BlockStateModelGenerator.TintType.NOT_TINTED);
-        for (Block block : ModRegistry.getModelList(ModRegistry.Models.CROSS_ITEMLESS))
-            registerItemlessCross(generator, block, BlockStateModelGenerator.TintType.NOT_TINTED);
+        for (Block block : ModRegistry.getModelList(ModRegistry.Models.FLOWER_POT))
+            generator.registerFlowerPotPlant(block, Blocks.FLOWER_POT, BlockStateModelGenerator.TintType.NOT_TINTED);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.DOOR))
             generator.registerDoor(block);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.TRAPDOOR))
@@ -92,10 +93,6 @@ public class ModModelProvider extends FabricModelProvider {
                 generator.register(item, new Model(Optional.of(Identifier.of("minecraft", "item/template_spawn_egg")),
                         Optional.empty()));
         }
-    }
-
-    private void registerItemlessCross(BlockStateModelGenerator generator, Block block, BlockStateModelGenerator.TintType tintType) {
-        generator.registerTintableCrossBlockState(block, tintType);
     }
 
     private void registerDynamicTopSoils(Identifier bottomTexture, BlockStateModelGenerator generator, Block... topSoilBlocks) {

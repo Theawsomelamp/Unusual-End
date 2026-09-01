@@ -1,6 +1,7 @@
 package net.sashakyotoz.unusualend.common;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.Model;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -16,19 +17,23 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.sashakyotoz.unusualend.UnusualEnd;
+import net.sashakyotoz.unusualend.common.items.ModItemGroups;
+import net.sashakyotoz.unusualend.common.items.custom.DescriptiveBlockItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ModRegistry {
     public static class BlockBuilder {
-        protected BlockBuilder(Identifier id, Block block, boolean item) {
+        protected BlockBuilder(Identifier id, Block block, Supplier<Item> item) {
             this.id = id;
             this.block = Registry.register(Registries.BLOCK, id, block);
-            if (item)
-                ModRegistry.ofItem(id.getPath(), new BlockItem(block, new FabricItemSettings())).build();
+            if (item != null) {
+                ModRegistry.ofItem(id.getPath(), item.get()).build();
+            }
         }
 
         public Block build() {
@@ -167,6 +172,7 @@ public class ModRegistry {
 
         public Item build() {
             ITEMS.add(this.item);
+            ItemGroupEvents.modifyEntriesEvent(ModItemGroups.UNUSUAL_END).register(entries -> entries.add(item));
             return this.item;
         }
 
@@ -206,7 +212,6 @@ public class ModRegistry {
         FLUID,
         WALL,
         CROSS,
-        CROSS_ITEMLESS,
         PILLAR,
         WOOD,
         STAIRS,
@@ -222,7 +227,8 @@ public class ModRegistry {
         HANGING_SIGN,
         WALL_HANGING_SIGN,
         BULB,
-        PANE
+        PANE,
+        FLOWER_POT
     }
 
     public static class Foods {
@@ -236,10 +242,14 @@ public class ModRegistry {
 
 
     public static BlockBuilder ofBlock(String id, Block block) {
-        return ModRegistry.ofBlock(id, block, true);
+        return ModRegistry.ofBlock(id, block, () -> new BlockItem(block, new FabricItemSettings()));
     }
 
-    public static BlockBuilder ofBlock(String id, Block block, boolean item) {
+    public static BlockBuilder ofDescriptiveBlock(String id, Block block) {
+        return ModRegistry.ofBlock(id, block, () -> new DescriptiveBlockItem(block, new FabricItemSettings()));
+    }
+
+    public static BlockBuilder ofBlock(String id, Block block, Supplier<Item> item) {
         return new BlockBuilder(UnusualEnd.makeID(id), block, item);
     }
 

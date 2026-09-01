@@ -3,10 +3,12 @@ package net.sashakyotoz.unusualend.common.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -15,7 +17,6 @@ import net.sashakyotoz.unusualend.common.ModRegistry;
 import net.sashakyotoz.unusualend.common.blocks.ModBlocks;
 import net.sashakyotoz.unusualend.common.items.ModItems;
 
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -23,6 +24,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
+    }
+
+    public static void offer2x2WithCount(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, int count, ItemConvertible input) {
+        ShapedRecipeJsonBuilder.create(category, output, count)
+                .input('#', input)
+                .pattern("##")
+                .pattern("##")
+                .criterion(hasItem(input), conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
+    private static void offerTilesRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible result, int count,
+                                         ItemConvertible a, ItemConvertible b) {
+        ShapedRecipeJsonBuilder.create(category, result, count)
+                .pattern("AB").pattern("BA")
+                .input('A', a).input('B', b)
+                .criterion(hasItem(a), conditionsFromItem(a))
+                .criterion(hasItem(b), conditionsFromItem(b))
+                .group(Registries.ITEM.getId(result.asItem()).getPath())
+                .offerTo(exporter, Registries.ITEM.getId(result.asItem()));
+    }
+
+    public static void offerSmithingUpgradeRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, Item template, Item tool, Item ingot, Item result) {
+        SmithingTransformRecipeJsonBuilder.create(
+                        Ingredient.ofItems(template), Ingredient.ofItems(tool), Ingredient.ofItems(ingot), category, result
+                )
+                .criterion(hasItem(ingot), conditionsFromItem(ingot))
+                .offerTo(exporter, getItemPath(result) + "_smithing");
     }
 
     @Override
@@ -78,54 +107,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             }
         }
 
-        //ingots recipes
-//        offerBlasting(exporter, List.of(ModBlocks.ABYSSAL_ORE_IN_DARK_CURRANTSLATE, ModBlocks.ABYSSAL_ORE_IN_GLACIEMITE),
-//                RecipeCategory.TOOLS, ModItems.RAW_ABYSSAL_ORE, 10, 400, "abyssal_ore");
         offerReversibleCompactingRecipes(exporter,RecipeCategory.MISC, ModItems.PEARLESCENT_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PEARLESCENT_BLOCK);
 
+        offerShapelessRecipe(exporter, Items.BLACK_DYE, ModItems.SPECTRAL_SCRAP, "black_dye", 1);
+        offerShapelessRecipe(exporter, Items.PHANTOM_MEMBRANE, ModBlocks.PHANTOM_MEMBRANE_BLOCK, null, 2);
+
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_PURPUR, ModBlocks.RAW_PURPUR_BLOCK);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GLOOPSLATE, ModBlocks.GLOOPSLATE);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOPSLATE_BRICKS, ModBlocks.POLISHED_GLOOPSLATE);
 
-//        generateHelmetRecipe(exporter, ModItems.PEARLESCENT_INGOT, ModItems.UNSEENIUM_HELMET);
-//        generateChestplateRecipe(exporter, ModItems.PEARLESCENT_INGOT, ModItems.UNSEENIUM_CHESTPLATE);
-//        generateLeggingsRecipe(exporter, ModItems.PEARLESCENT_INGOT, ModItems.UNSEENIUM_LEGGINGS);
-//        generateBootsRecipe(exporter, ModItems.PEARLESCENT_INGOT, ModItems.UNSEENIUM_BOOTS);
-    }
+        offer2x2WithCount(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PHANTOM_MEMBRANE_BLOCK, 2, Items.PHANTOM_MEMBRANE);
+        offer2x2WithCount(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.BLACK_WOOL, 2, ModItems.SPECTRAL_SCRAP);
 
-    private void generateHelmetRecipe(Consumer<RecipeJsonProvider> exporter, Item ingredient, Item result) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, result)
-                .input('X', ingredient)
-                .pattern("XXX")
-                .pattern("X X")
-                .criterion("has_ingredient", conditionsFromItem(ingredient))
-                .offerTo(exporter);
-    }
+        offerTilesRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPECTRAL_BLOCK, 2, Items.PHANTOM_MEMBRANE, ModItems.SPECTRAL_SCRAP);
+        offerTilesRecipe(exporter, RecipeCategory.TOOLS, ModItems.SPECTRAL_CLOTH, 2, Items.STRING, ModItems.SPECTRAL_SCRAP);
 
-    private void generateChestplateRecipe(Consumer<RecipeJsonProvider> exporter, Item ingredient, Item result) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, result)
-                .input('X', ingredient)
-                .pattern("X X")
-                .pattern("XXX")
-                .pattern("XXX")
-                .criterion("has_ingredient", conditionsFromItem(ingredient))
-                .offerTo(exporter);
-    }
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_BUILDER, Blocks.END_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_US, Blocks.END_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_DRAGON, Blocks.END_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_SCARED, Blocks.END_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_WORK, Blocks.END_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_FRIENDSHIP, Blocks.END_STONE);
 
-    private void generateLeggingsRecipe(Consumer<RecipeJsonProvider> exporter, Item ingredient, Item result) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, result)
-                .input('X', ingredient)
-                .pattern("XXX")
-                .pattern("X X")
-                .pattern("X X")
-                .criterion("has_ingredient", conditionsFromItem(ingredient))
-                .offerTo(exporter);
-    }
-
-    private void generateBootsRecipe(Consumer<RecipeJsonProvider> exporter, Item ingredient, Item result) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, result)
-                .input('X', ingredient)
-                .pattern("X X")
-                .pattern("X X")
-                .criterion("has_ingredient", conditionsFromItem(ingredient))
-                .offerTo(exporter);
+        offerSmithingUpgradeRecipe(exporter, RecipeCategory.TOOLS, ModItems.PEARLESCENT_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND_SWORD, ModItems.PEARLESCENT_INGOT, ModItems.PEARLESCENT_SWORD);
+        offerSmithingUpgradeRecipe(exporter, RecipeCategory.TOOLS, ModItems.PEARLESCENT_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND_PICKAXE, ModItems.PEARLESCENT_INGOT, ModItems.PEARLESCENT_PICKAXE);
+        offerSmithingUpgradeRecipe(exporter, RecipeCategory.TOOLS, ModItems.PEARLESCENT_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND_AXE, ModItems.PEARLESCENT_INGOT, ModItems.PEARLESCENT_AXE);
+        offerSmithingUpgradeRecipe(exporter, RecipeCategory.TOOLS, ModItems.PEARLESCENT_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND_SHOVEL, ModItems.PEARLESCENT_INGOT, ModItems.PEARLESCENT_SHOVEL);
+        offerSmithingUpgradeRecipe(exporter, RecipeCategory.TOOLS, ModItems.PEARLESCENT_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND_HOE, ModItems.PEARLESCENT_INGOT, ModItems.PEARLESCENT_HOE);
     }
 }

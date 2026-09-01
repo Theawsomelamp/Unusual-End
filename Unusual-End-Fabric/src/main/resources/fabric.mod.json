@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "unusual-end-fabric",
+  "id": "unusualend",
   "version": "${version}",
-  "name": "Unusual-End-Fabric",
+  "name": "Unusual End",
   "description": "Enhance your End experience !",
   "authors": [
     "SashaKYotoz",
@@ -24,7 +24,7 @@
     ]
   },
   "mixins": [
-    "unusual-end-fabric.mixins.json"
+    "unusualend.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
