@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:end_stone",
+    "unusualend:infested_end_stone",
+    "unusualend:raw_purpur_block",
+    "unusualend:rooted_raw_purpur",
+    "unusualend:warped_end_stone"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "infused_end_stone_tiles",
+  "key": {
+    "A": {
+      "item": "unusualend:end_stone_tiles"
+    },
+    "B": {
+      "item": "minecraft:dragon_breath"
+    }
+  },
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "result": {
+    "count": 2,
+    "item": "unusualend:infused_end_stone_tiles"
+  },
+  "show_notification": true
+}

@@ -27,6 +27,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         }
 
         addDrop(ModBlocks.WARPED_END_STONE, drops(ModBlocks.WARPED_END_STONE, Blocks.END_STONE));
+        addDrop(ModBlocks.CHORUS_ROOTS, dropsWithShears(ModBlocks.CHORUS_ROOTS));
         addDrop(ModBlocks.FLOWER_POT_CHORUS_FUNGUS, pottedPlantDrops(ModBlocks.CHORUS_FUNGUS));
         addDrop(ModBlocks.ENDSTONE_SPROUTS, dropsWithShears(ModBlocks.ENDSTONE_SPROUTS));
         addDrop(ModBlocks.PURPUR_GRASS, dropsWithShears(ModBlocks.PURPUR_GRASS));

@@ -4,6 +4,7 @@
   "package": "net.sashakyotoz.unusualend.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ChorusPlantBlockMixin",
     "LivingEntityMixin"
   ],
   "client": [

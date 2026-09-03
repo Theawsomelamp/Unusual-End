@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "unusualend:gloopslate_bricks_slab",
+    "unusualend:polished_gloopslate_slab",
+    "unusualend:raw_purpur_block_slab",
+    "unusualend:polished_purpur_slab",
+    "unusualend:polished_purpur_tiles_slab",
+    "unusualend:polished_purpur_bricks_slab"
+  ]
+}

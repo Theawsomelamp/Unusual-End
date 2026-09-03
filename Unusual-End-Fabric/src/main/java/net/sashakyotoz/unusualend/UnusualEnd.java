@@ -8,6 +8,7 @@ import net.sashakyotoz.unusualend.common.enchantments.ModEnchantments;
 import net.minecraft.util.Identifier;
 import net.sashakyotoz.unusualend.common.items.ModItemGroups;
 import net.sashakyotoz.unusualend.common.items.ModItems;
+import net.sashakyotoz.unusualend.common.world.ModFeatures;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,6 +23,7 @@ public class UnusualEnd implements ModInitializer {
         ModItemGroups.register();
         ModEffects.register();
         ModEnchantments.register();
+        ModFeatures.register();
 
         UnusualEndDataGenerator.registerBurnable();
         UnusualEndDataGenerator.registerFuels();

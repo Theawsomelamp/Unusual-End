@@ -3,7 +3,7 @@ package net.sashakyotoz.unusualend.common.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.ArmorItem;
@@ -36,7 +36,7 @@ public class ModModelProvider extends FabricModelProvider {
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.CROSS))
             generator.registerTintableCross(block, BlockStateModelGenerator.TintType.NOT_TINTED);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.FLOWER_POT))
-            generator.registerFlowerPotPlant(block, Blocks.FLOWER_POT, BlockStateModelGenerator.TintType.NOT_TINTED);
+            generator.registerFlowerPotPlant(((FlowerPotBlock) block).getContent(), block, BlockStateModelGenerator.TintType.NOT_TINTED);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.DOOR))
             generator.registerDoor(block);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.TRAPDOOR))

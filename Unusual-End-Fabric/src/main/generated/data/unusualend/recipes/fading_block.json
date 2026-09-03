@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "fading_block",
+  "key": {
+    "A": {
+      "item": "unusualend:end_stone_tiles"
+    },
+    "B": {
+      "item": "unusualend:spectral_scrap"
+    }
+  },
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "result": {
+    "count": 2,
+    "item": "unusualend:fading_block"
+  },
+  "show_notification": true
+}

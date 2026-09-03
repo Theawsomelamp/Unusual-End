@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "unusualend:spectral_scrap"
+    },
+    "B": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "A A",
+    "B B"
+  ],
+  "result": {
+    "item": "unusualend:spectral_leggings"
+  },
+  "show_notification": true
+}

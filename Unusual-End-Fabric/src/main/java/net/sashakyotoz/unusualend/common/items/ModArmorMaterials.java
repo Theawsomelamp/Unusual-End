@@ -10,7 +10,7 @@ import net.sashakyotoz.unusualend.UnusualEnd;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    SPECTRAL_SCRAP("spectral", 30, new int[]{0, 5, 0, 0}, 24,
+    SPECTRAL_SCRAP("spectral", 30, new int[]{0, 0, 5, 0}, 24,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(ModItems.SPECTRAL_SCRAP))
 //    TITANIUM("titanium", 42, new int[]{6, 11, 9, 6}, 20,
 //            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.RED_TITANIUM_INGOT));

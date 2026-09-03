@@ -1,2 +1,7 @@
-// 1.20.1	2026-09-01T20:44:22.81147195	Unusual End/Tags for minecraft:block
-d17b1971150ca380aa38cbf2e9676ab1f4dcbb0e data/minecraft/tags/blocks/mineable/pickaxe.json
+// 1.20.1	2026-09-03T21:35:28.185154043	Unusual End/Tags for minecraft:block
+00babf93616b0f689ca98628b278900be9e13c9b data/minecraft/tags/blocks/mineable/pickaxe.json
+920c22af7e7a20aeba70d659d4502e797c8dc9c9 data/minecraft/tags/blocks/walls.json
+dc01321d8d6ed08caafa84f3452951a852f4bf9c data/minecraft/tags/blocks/slabs.json
+e242ee729e2b3590607c967abd7d4bd09b2e6595 data/unusualend/tags/blocks/end_soils.json
+d9a5c811790e8d5f73418057765ff2cd375a7b0b data/minecraft/tags/blocks/stairs.json
+7bb5639c801d913d3a37331f8f691278506d5756 data/unusualend/tags/blocks/endstone_bricks.json
