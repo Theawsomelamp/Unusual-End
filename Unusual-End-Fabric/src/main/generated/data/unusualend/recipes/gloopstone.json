@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "gloopstone",
+  "key": {
+    "A": {
+      "item": "unusualend:gloopslate"
+    },
+    "B": {
+      "tag": "unusualend:blob_loot"
+    }
+  },
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "result": {
+    "count": 4,
+    "item": "unusualend:gloopstone"
+  },
+  "show_notification": true
+}

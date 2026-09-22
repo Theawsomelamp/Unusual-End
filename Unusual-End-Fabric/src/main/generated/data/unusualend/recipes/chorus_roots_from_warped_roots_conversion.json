@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:warped_roots"
+    },
+    "X": {
+      "item": "unusualend:shiny_crystal"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "unusualend:chorus_roots"
+  },
+  "show_notification": true
+}

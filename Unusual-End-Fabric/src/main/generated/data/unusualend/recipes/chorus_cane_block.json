@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    },
+    {
+      "item": "unusualend:chorus_cane"
+    }
+  ],
+  "result": {
+    "item": "unusualend:chorus_cane_block"
+  }
+}

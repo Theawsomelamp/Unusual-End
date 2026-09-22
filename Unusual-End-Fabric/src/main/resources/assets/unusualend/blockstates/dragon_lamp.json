@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "unusualend:block/dragon_lamp"
+    },
+    "lit=true": {
+      "model": "unusualend:block/dragon_lamp_on"
+    }
+  }
+}

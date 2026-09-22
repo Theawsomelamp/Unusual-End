@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:chorus_cane_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "unusualend:chorus_nest_planks"
+  }
+}

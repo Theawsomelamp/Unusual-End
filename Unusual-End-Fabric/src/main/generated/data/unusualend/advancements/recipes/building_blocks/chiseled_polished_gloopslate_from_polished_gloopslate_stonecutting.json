@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_gloopslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:polished_gloopslate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:chiseled_polished_gloopslate_from_polished_gloopslate_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_gloopslate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:chiseled_polished_gloopslate_from_polished_gloopslate_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

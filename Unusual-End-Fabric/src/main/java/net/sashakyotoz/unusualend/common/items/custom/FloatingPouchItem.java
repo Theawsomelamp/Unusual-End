@@ -13,6 +13,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.sashakyotoz.unusualend.UnusualEnd;
 
 public class FloatingPouchItem extends DescriptiveItem {
     public FloatingPouchItem(Settings settings) {
@@ -34,7 +35,7 @@ public class FloatingPouchItem extends DescriptiveItem {
             user.setVelocity(new Vec3d((user.getVelocity().getX()), 1, (user.getVelocity().getZ())));
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 60, 0));
         }
-        user.getItemCooldownManager().set(user.getStackInHand(hand).getItem(), 100);
+        user.getItemCooldownManager().set(user.getStackInHand(hand).getItem(), UnusualEnd.CONFIG.floatingPouchCooldown);
         return super.use(world, user, hand);
     }
 }

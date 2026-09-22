@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "unusualend:gloopstone_bricks"
+  },
+  "result": "unusualend:chiseled_gloopstone_bricks"
+}

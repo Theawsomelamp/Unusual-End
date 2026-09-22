@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:warped_nylium"
+    },
+    "X": {
+      "item": "unusualend:shiny_crystal"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:crimson_nylium"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "unusualend:block/dripping_gloopstone"
+  }
+}

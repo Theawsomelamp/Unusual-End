@@ -4,18 +4,14 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.Model;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.Direction;
 import net.sashakyotoz.unusualend.UnusualEnd;
 import net.sashakyotoz.unusualend.common.items.ModItemGroups;
 import net.sashakyotoz.unusualend.common.items.custom.DescriptiveBlockItem;
@@ -56,8 +52,8 @@ public class ModRegistry {
             return this;
         }
 
-        public BlockBuilder drop_shears(ItemConvertible loot) {
-            BLOCK_SHEARS_DROPS.putIfAbsent(this.block, loot);
+        public BlockBuilder drop_shears() {
+            BLOCK_SHEARS_DROPS.putIfAbsent(this.block, this.block);
             return this;
         }
 
@@ -124,6 +120,17 @@ public class ModRegistry {
             ));
         }
 
+        public static void registerWoodSet(Block parent, Block stairs, Block slab, Block fence, Block fenceGate, Block pressurePlate, Block button) {
+            registerSet(parent, Map.of(
+                    Models.STAIRS, stairs,
+                    Models.SLAB, slab,
+                    Models.FENCE, fence,
+                    Models.FENCE_GATE, fenceGate,
+                    Models.PRESSURE_PLATE, pressurePlate,
+                    Models.BUTTON, button
+            ));
+        }
+
         public BlockBuilder model(Models model) {
             BLOCK_MODELS.putIfAbsent(model, new ArrayList<>());
             BLOCK_MODELS.get(model).add(this.block);
@@ -147,6 +154,11 @@ public class ModRegistry {
 
         public BlockBuilder fuel(int duration) {
             ITEM_BURNABLE.put(this.block, duration);
+            return this;
+        }
+
+        public BlockBuilder compostable(float chance) {
+            ITEM_COMPOSTABLE.put(this.block, chance);
             return this;
         }
 
@@ -195,8 +207,18 @@ public class ModRegistry {
             return this;
         }
 
+        public ItemBuilder armor() {
+            ARMOR_ITEMS.add(this.item);
+            return this;
+        }
+
         public ItemBuilder fuel(int duration) {
             ITEM_BURNABLE.put(this.item, duration);
+            return this;
+        }
+
+        public ItemBuilder compostable(float chance) {
+            ITEM_COMPOSTABLE.put(this.item, chance);
             return this;
         }
     }
@@ -209,6 +231,7 @@ public class ModRegistry {
         FLUID,
         WALL,
         CROSS,
+        TALL_CROSS,
         PILLAR,
         WOOD,
         STAIRS,
@@ -225,18 +248,10 @@ public class ModRegistry {
         WALL_HANGING_SIGN,
         BULB,
         PANE,
-        FLOWER_POT
+        FLOWER_POT,
+        TORCH,
+        WALL_TORCH
     }
-
-    public static class Foods {
-        public static final FoodComponent CRYSTIE_APPLE = new FoodComponent.Builder().alwaysEdible().saturationModifier(2).hunger(3).statusEffect(
-                        new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 0, true, false),
-                        1)
-                .statusEffect(
-                        new StatusEffectInstance(StatusEffects.HASTE, 240, 1, true, false),
-                        1).build();
-    }
-
 
     public static BlockBuilder ofBlock(String id, Block block) {
         return ModRegistry.ofBlock(id, block, () -> new BlockItem(block, new FabricItemSettings()));
@@ -244,6 +259,10 @@ public class ModRegistry {
 
     public static BlockBuilder ofDescriptiveBlock(String id, Block block) {
         return ModRegistry.ofBlock(id, block, () -> new DescriptiveBlockItem(block, new FabricItemSettings()));
+    }
+
+    public static BlockBuilder ofVerticallyAttachableBlock(String id, Block block, Block wallBlock) {
+        return ModRegistry.ofBlock(id, block, () -> new VerticallyAttachableBlockItem(block, wallBlock, new FabricItemSettings(), Direction.DOWN));
     }
 
     public static BlockBuilder ofBlock(String id, Block block, Supplier<Item> item) {
@@ -291,7 +310,9 @@ public class ModRegistry {
 
 
     public static List<Item> ITEMS = new ArrayList<>();
+    public static List<Item> ARMOR_ITEMS = new ArrayList<>();
     public static Map<TagKey<Item>, List<Item>> ITEM_TAGS = new HashMap<>();
     public static Map<Item, Model> ITEM_MODELS = new HashMap<>();
     public static Map<ItemConvertible, Integer> ITEM_BURNABLE = new HashMap<>();
+    public static Map<ItemConvertible, Float> ITEM_COMPOSTABLE = new HashMap<>();
 }

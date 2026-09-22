@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:prismalite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "unusualend:prismalite_gem"
+  }
+}

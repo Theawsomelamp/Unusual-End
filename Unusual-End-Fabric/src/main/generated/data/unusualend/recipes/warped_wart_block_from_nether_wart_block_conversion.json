@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:nether_wart_block"
+    },
+    "X": {
+      "item": "unusualend:shiny_crystal"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:warped_wart_block"
+  },
+  "show_notification": true
+}

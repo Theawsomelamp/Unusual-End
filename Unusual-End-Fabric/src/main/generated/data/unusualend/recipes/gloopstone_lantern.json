@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "gloopstone_lantern",
+  "key": {
+    "A": {
+      "item": "unusualend:polished_gloopstone"
+    },
+    "B": {
+      "item": "unusualend:shiny_crystal"
+    }
+  },
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "result": {
+    "item": "unusualend:gloopstone_lantern"
+  },
+  "show_notification": true
+}

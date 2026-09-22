@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:dead_tube_coral"
+    },
+    "X": {
+      "item": "unusualend:shiny_crystal"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:tube_coral"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:chorus_petal"
+    },
+    {
+      "item": "unusualend:chorus_petal"
+    },
+    {
+      "item": "unusualend:chorus_petal"
+    }
+  ],
+  "result": {
+    "item": "minecraft:paper"
+  }
+}

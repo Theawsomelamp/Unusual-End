@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "shiny_crystal_tiles",
+  "key": {
+    "A": {
+      "item": "unusualend:shiny_crystal"
+    },
+    "B": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "result": {
+    "count": 4,
+    "item": "unusualend:shiny_crystal_tiles"
+  },
+  "show_notification": true
+}

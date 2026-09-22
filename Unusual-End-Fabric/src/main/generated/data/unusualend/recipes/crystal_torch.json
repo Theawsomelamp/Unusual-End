@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "crystal_torch",
+  "key": {
+    "A": {
+      "item": "unusualend:shiny_crystal"
+    },
+    "B": {
+      "item": "unusualend:end_blob"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "A",
+    "B",
+    "C"
+  ],
+  "result": {
+    "count": 2,
+    "item": "unusualend:crystal_torch"
+  },
+  "show_notification": true
+}

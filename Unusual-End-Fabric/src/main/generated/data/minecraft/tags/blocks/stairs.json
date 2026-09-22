@@ -1,8 +1,13 @@
 {
   "replace": false,
   "values": [
-    "unusualend:gloopslate_bricks_stairs",
+    "unusualend:enderblob_moult_bricks_stairs",
+    "unusualend:shiny_crystal_tile_stairs",
+    "unusualend:shiny_crystal_bricks_stairs",
     "unusualend:polished_gloopslate_stairs",
+    "unusualend:gloopslate_bricks_stairs",
+    "unusualend:polished_gloopstone_stairs",
+    "unusualend:gloopstone_bricks_stairs",
     "unusualend:raw_purpur_block_stairs",
     "unusualend:polished_purpur_stairs",
     "unusualend:polished_purpur_tiles_stairs",

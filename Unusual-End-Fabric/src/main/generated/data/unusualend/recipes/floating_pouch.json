@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "unusualend:spectral_scrap"
+    },
+    "B": {
+      "item": "unusualend:lurker_sludge"
+    },
+    "C": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " C ",
+    "ABA",
+    " A "
+  ],
+  "result": {
+    "item": "unusualend:floating_pouch"
+  },
+  "show_notification": true
+}

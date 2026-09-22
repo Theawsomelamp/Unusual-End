@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chorus_cane": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:chorus_cane"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:stick_from_chorus_cane"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_chorus_cane",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:stick_from_chorus_cane"
+    ]
+  },
+  "sends_telemetry_event": false
+}

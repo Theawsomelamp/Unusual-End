@@ -14,10 +14,12 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.StringHelper;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.sashakyotoz.unusualend.UnusualEnd;
 import net.sashakyotoz.unusualend.common.effects.ModEffects;
 import org.jetbrains.annotations.Nullable;
 
@@ -31,8 +33,10 @@ public class SpectralClothItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.literal(Text.translatable("effect.minecraft.invisibility").getString() + " II (1:00)").formatted(Formatting.BLUE));
-        tooltip.add(Text.literal(Text.translatable("effect.unusualend.spectral_stride").getString() + " (1:00)").formatted(Formatting.BLUE));
+        int effectTime = UnusualEnd.CONFIG.spectralClothEffectTime;
+
+        tooltip.add(Text.literal(Text.translatable("effect.minecraft.invisibility").getString() + " II (" + StringHelper.formatTicks(effectTime) + ")").formatted(Formatting.BLUE));
+        tooltip.add(Text.literal(Text.translatable("effect.unusualend.spectral_stride").getString() + " (" + StringHelper.formatTicks(effectTime) + ")").formatted(Formatting.BLUE));
     }
 
     @Override
@@ -43,8 +47,8 @@ public class SpectralClothItem extends Item {
             player.getServer().getCommandManager().executeWithPrefix(new ServerCommandSource(CommandOutput.DUMMY, new Vec3d(player.getX(), player.getY(), player.getZ()), Vec2f.ZERO, player.getServerWorld(), 4, "", Text.literal(""), player.getServer(), null).withSilent(),
                     "particle dust_color_transition 0.827 0.216 0.741 1.5 0.047 0.047 0.047 ~ ~1 ~ 0.4 0.5 0.4 0 40 normal");
         }
-        user.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 1200, 0, false, false));
-        user.addStatusEffect(new StatusEffectInstance(ModEffects.SPECTRAL_STRIDE, 1200, 0, false, false));
+        user.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, UnusualEnd.CONFIG.spectralClothEffectTime, 1, false, false));
+        user.addStatusEffect(new StatusEffectInstance(ModEffects.SPECTRAL_STRIDE, UnusualEnd.CONFIG.spectralClothEffectTime, 0, false, false));
         Team team = user.getWorld().getScoreboard().getTeam(user.getUuidAsString()) == null ?
                 user.getWorld().getScoreboard().addTeam(user.getUuidAsString())
                 : user.getWorld().getScoreboard().getTeam(user.getUuidAsString());

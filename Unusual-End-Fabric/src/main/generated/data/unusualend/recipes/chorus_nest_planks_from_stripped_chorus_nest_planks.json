@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:stripped_chorus_nest_planks"
+    }
+  ],
+  "result": {
+    "item": "unusualend:chorus_nest_planks"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gloopy_bush": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:gloopy_bush"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:purple_dye_from_gloopy_bush"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gloopy_bush",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:purple_dye_from_gloopy_bush"
+    ]
+  },
+  "sends_telemetry_event": false
+}

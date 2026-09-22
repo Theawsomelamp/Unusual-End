@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "phantom_arrow",
+  "key": {
+    "A": {
+      "item": "minecraft:arrow"
+    },
+    "B": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "pattern": [
+    " B ",
+    "BAB",
+    " B "
+  ],
+  "result": {
+    "item": "unusualend:phantom_arrow"
+  },
+  "show_notification": true
+}

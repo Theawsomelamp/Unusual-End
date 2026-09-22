@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:blooming_chorus_cane"
+    }
+  ],
+  "result": {
+    "item": "unusualend:chorus_cane"
+  }
+}

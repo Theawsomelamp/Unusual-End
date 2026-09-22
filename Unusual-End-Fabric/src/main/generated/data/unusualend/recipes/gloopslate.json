@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "gloopslate",
+  "key": {
+    "A": {
+      "item": "unusualend:raw_purpur_block"
+    },
+    "B": {
+      "tag": "unusualend:blob_loot"
+    }
+  },
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "result": {
+    "count": 4,
+    "item": "unusualend:gloopslate"
+  },
+  "show_notification": true
+}

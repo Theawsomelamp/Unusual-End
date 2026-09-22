@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_end_blob": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:end_blob"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gloopstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:gloopstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:bouncy_gloopstone_shapeless"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gloopstone",
+      "has_end_blob",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:bouncy_gloopstone_shapeless"
+    ]
+  },
+  "sends_telemetry_event": false
+}

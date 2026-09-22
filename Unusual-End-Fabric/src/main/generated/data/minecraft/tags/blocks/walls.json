@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "unusualend:enderblob_moult_bricks_wall",
+    "unusualend:gloopstone_bricks_wall",
     "unusualend:raw_purpur_wall",
     "unusualend:polished_purpur_bricks_wall"
   ]

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "unusualend:block/crystal_wall_torch"
+    },
+    "facing=north": {
+      "model": "unusualend:block/crystal_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "unusualend:block/crystal_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "unusualend:block/crystal_wall_torch",
+      "y": 180
+    }
+  }
+}

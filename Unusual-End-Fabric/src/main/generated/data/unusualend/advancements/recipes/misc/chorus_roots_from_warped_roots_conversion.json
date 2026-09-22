@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shiny_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:shiny_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:chorus_roots_from_warped_roots_conversion"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_roots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_roots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_shiny_crystal",
+      "has_warped_roots",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:chorus_roots_from_warped_roots_conversion"
+    ]
+  },
+  "sends_telemetry_event": false
+}

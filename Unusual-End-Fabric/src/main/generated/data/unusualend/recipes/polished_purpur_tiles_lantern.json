@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "polished_purpur_tiles_lantern",
+  "key": {
+    "A": {
+      "item": "unusualend:firefly_bulb"
+    },
+    "B": {
+      "item": "unusualend:polished_purpur_tiles"
+    }
+  },
+  "pattern": [
+    " B ",
+    "BAB",
+    " B "
+  ],
+  "result": {
+    "count": 4,
+    "item": "unusualend:polished_purpur_tiles_lantern"
+  },
+  "show_notification": true
+}

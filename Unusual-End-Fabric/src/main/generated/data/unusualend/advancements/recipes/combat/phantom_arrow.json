@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_arrow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:arrow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_phantom_membrane": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:phantom_membrane"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unusualend:phantom_arrow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_arrow",
+      "has_phantom_membrane",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unusualend:phantom_arrow"
+    ]
+  },
+  "sends_telemetry_event": false
+}

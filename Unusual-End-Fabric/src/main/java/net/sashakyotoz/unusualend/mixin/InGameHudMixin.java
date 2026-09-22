@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Identifier;
 import net.sashakyotoz.unusualend.UnusualEnd;
 import net.sashakyotoz.unusualend.common.effects.ModEffects;
@@ -36,7 +37,7 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "render", at = @At(value = "FIELD", target = "Lnet/minecraft/client/option/GameOptions;hudHidden:Z", ordinal = 0, opcode = Opcodes.GETFIELD))
     public void renderSpectralClothOverlay(DrawContext context, float tickDelta, CallbackInfo ci){
-        if (client.player.hasStatusEffect(ModEffects.SPECTRAL_STRIDE)) {
+        if (client.player.hasStatusEffect(ModEffects.SPECTRAL_STRIDE) && client.player.hasStatusEffect(StatusEffects.INVISIBILITY)) {
             RenderSystem.disableDepthTest();
             RenderSystem.depthMask(false);
             RenderSystem.enableBlend();

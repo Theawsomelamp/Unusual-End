@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    },
+    {
+      "item": "unusualend:prismalite_gem"
+    }
+  ],
+  "result": {
+    "item": "unusualend:prismalite_block"
+  }
+}

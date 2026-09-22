@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "unusualend:end_blob"
+    },
+    "B": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "C": {
+      "tag": "unusualend:chorus_flowers"
+    },
+    "D": {
+      "item": "minecraft:leather_helmet"
+    }
+  },
+  "pattern": [
+    "BCB",
+    "ADA"
+  ],
+  "result": {
+    "item": "unusualend:chorus_helmet"
+  },
+  "show_notification": true
+}

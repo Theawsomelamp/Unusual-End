@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "unusualend:block/polished_gloopstone",
+    "side": "unusualend:block/polished_gloopstone",
+    "top": "unusualend:block/polished_gloopstone"
+  }
+}

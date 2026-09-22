@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:chorus_petals_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "unusualend:chorus_petal"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "unusualend:block/gloopslate",
+    "up": "unusualend:block/bouncy_gloopslate_top",
+    "north": "unusualend:block/bouncy_gloopslate",
+    "east": "unusualend:block/bouncy_gloopslate",
+    "south": "unusualend:block/bouncy_gloopslate",
+    "west": "unusualend:block/bouncy_gloopslate",
+    "particle": "unusualend:block/gloopslate"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "magenta_candle",
+  "key": {
+    "A": {
+      "item": "unusualend:chorus_roots"
+    },
+    "B": {
+      "item": "unusualend:end_blob"
+    },
+    "C": {
+      "item": "unusualend:gloopslate"
+    }
+  },
+  "pattern": [
+    "A",
+    "B",
+    "C"
+  ],
+  "result": {
+    "item": "minecraft:magenta_candle"
+  },
+  "show_notification": true
+}

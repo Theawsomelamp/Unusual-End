@@ -1,8 +1,13 @@
 {
   "replace": false,
   "values": [
-    "unusualend:gloopslate_bricks_slab",
+    "unusualend:enderblob_moult_bricks_slab",
+    "unusualend:shiny_crystal_tiles_slab",
+    "unusualend:shiny_crystal_bricks_slab",
     "unusualend:polished_gloopslate_slab",
+    "unusualend:gloopslate_bricks_slab",
+    "unusualend:polished_gloopstone_slab",
+    "unusualend:gloopstone_bricks_slab",
     "unusualend:raw_purpur_block_slab",
     "unusualend:polished_purpur_slab",
     "unusualend:polished_purpur_tiles_slab",

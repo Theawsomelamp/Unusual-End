@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "unusualend:chorus_roots"
+    },
+    "B": {
+      "item": "unusualend:chorus_cane_flower"
+    }
+  },
+  "pattern": [
+    "ABA"
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:string"
+  },
+  "show_notification": true
+}

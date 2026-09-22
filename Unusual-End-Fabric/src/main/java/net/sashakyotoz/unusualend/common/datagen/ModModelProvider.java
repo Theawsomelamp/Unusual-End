@@ -15,7 +15,6 @@ import net.sashakyotoz.unusualend.common.ModRegistry;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -35,6 +34,8 @@ public class ModModelProvider extends FabricModelProvider {
             generator.registerLog(block).log(block);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.CROSS))
             generator.registerTintableCross(block, BlockStateModelGenerator.TintType.NOT_TINTED);
+        for (Block block : ModRegistry.getModelList(ModRegistry.Models.TALL_CROSS))
+            generator.registerDoubleBlock(block, BlockStateModelGenerator.TintType.NOT_TINTED);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.FLOWER_POT))
             generator.registerFlowerPotPlant(((FlowerPotBlock) block).getContent(), block, BlockStateModelGenerator.TintType.NOT_TINTED);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.DOOR))
@@ -55,6 +56,11 @@ public class ModModelProvider extends FabricModelProvider {
                 for (Map.Entry<ModRegistry.Models, Block> entry : ModRegistry.BLOCK_SETS.get(block).entrySet()) {
                     if (entry.getKey() == ModRegistry.Models.PANE)
                         generator.registerGlassPane(block, entry.getValue());
+                }
+            } else if (ModRegistry.BLOCK_SETS.get(block).containsKey(ModRegistry.Models.WALL_TORCH)) {
+                for (Map.Entry<ModRegistry.Models, Block> entry : ModRegistry.BLOCK_SETS.get(block).entrySet()) {
+                    if (entry.getKey() == ModRegistry.Models.WALL_TORCH)
+                        generator.registerTorch(block, entry.getValue());
                 }
             } else {
                 pool = generator.registerCubeAllModelTexturePool(block);
@@ -86,12 +92,9 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator generator) {
         for (Map.Entry<Item, Model> entry : ModRegistry.ITEM_MODELS.entrySet())
             generator.register(entry.getKey(), entry.getValue());
-        for (Item item : ModRegistry.ITEMS) {
+        for (Item item : ModRegistry.ARMOR_ITEMS) {
             if (item instanceof ArmorItem armorItem)
                 generator.registerArmor(armorItem);
-            if (item.getTranslationKey().contains("spawn_egg"))
-                generator.register(item, new Model(Optional.of(Identifier.of("minecraft", "item/template_spawn_egg")),
-                        Optional.empty()));
         }
     }
 

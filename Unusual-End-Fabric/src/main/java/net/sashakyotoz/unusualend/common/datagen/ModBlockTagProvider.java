@@ -38,6 +38,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.INFESTED_END_STONE,
                 ModBlocks.RAW_PURPUR_BLOCK,
                 ModBlocks.ROOTED_RAW_PURPUR,
+                ModBlocks.GLOOPY_ENDSTONE,
+                ModBlocks.GLOOPSLATE,
+                ModBlocks.GLOOPSTONE,
                 ModBlocks.WARPED_END_STONE
         );
     }

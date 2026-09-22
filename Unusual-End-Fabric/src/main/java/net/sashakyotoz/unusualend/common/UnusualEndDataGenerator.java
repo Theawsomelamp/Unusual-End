@@ -2,6 +2,7 @@ package net.sashakyotoz.unusualend.common;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -30,6 +31,11 @@ public class UnusualEndDataGenerator implements DataGeneratorEntrypoint {
     public static void registerFuels() {
         for (Map.Entry<ItemConvertible, Integer> entry : ModRegistry.ITEM_BURNABLE.entrySet())
             FuelRegistry.INSTANCE.add(entry.getKey(), entry.getValue());
+    }
+
+    public static void registerCompostable() {
+        for (Map.Entry<ItemConvertible, Float> entry : ModRegistry.ITEM_COMPOSTABLE.entrySet())
+            CompostingChanceRegistry.INSTANCE.add(entry.getKey(), entry.getValue());
     }
 
     public static void registerBurnable() {

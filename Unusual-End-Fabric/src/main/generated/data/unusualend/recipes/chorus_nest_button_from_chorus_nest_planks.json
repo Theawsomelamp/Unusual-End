@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mod_buttons",
+  "ingredients": [
+    {
+      "item": "unusualend:chorus_nest_planks"
+    }
+  ],
+  "result": {
+    "item": "unusualend:chorus_nest_button"
+  }
+}

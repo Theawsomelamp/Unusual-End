@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "unusualend:pearlescent_ingot"
+    },
+    "B": {
+      "item": "unusualend:prismalite_gem"
+    }
+  },
+  "pattern": [
+    "AA ",
+    "AB ",
+    "  A"
+  ],
+  "result": {
+    "item": "unusualend:prismatic_mirror"
+  },
+  "show_notification": true
+}
