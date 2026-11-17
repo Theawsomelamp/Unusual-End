@@ -3,7 +3,6 @@ package net.sweety.unusualend.event;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -29,6 +28,11 @@ import net.sweety.unusualend.procedures.SpunklerNaturalEntitySpawningConditionPr
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class UnusualEndEvents {
+    @SubscribeEvent
+    public static void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(UnusualEndBlocks::registerPottedPlants);
+    }
+
     @SubscribeEvent
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerItem(Capabilities.ItemHandler.ITEM, (stack, content) -> stack.getCapability(BolokResearchNotesItem.NOTES_ITEM_HANDLER), UnusualEndItems.BOLOK_RESEARCH_NOTES.get());
@@ -85,37 +89,6 @@ public class UnusualEndEvents {
         registrar.playToServer(BolokNotesPacket.TYPE, BolokNotesPacket.STREAM_CODEC, BolokNotesPacket::handle);
         registrar.playToServer(InfuserGUIPacket.TYPE, InfuserGUIPacket.STREAM_CODEC, InfuserGUIPacket::handle);
         registrar.playBidirectional(UnusualEndVariables.PlayerVariablesSyncPacket.TYPE, UnusualEndVariables.PlayerVariablesSyncPacket.STREAM_CODEC, UnusualEndVariables.PlayerVariablesSyncPacket::handle);
-    }
-
-    @SubscribeEvent
-    public static void addComposterItems(FMLCommonSetupEvent event) {
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.CHORUS_CANE_FLOWER.get().asItem(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.CHORUS_CANE.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.BLOOMING_CHORUS_CANE.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.CHORUS_FUNGUS.get().asItem(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.CHORUS_ROOTS.get().asItem(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.ENDSTONE_SPROUTS.get().asItem(), 0.5f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.PURPUR_GRASS.get().asItem(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.FLOWERING_PURPUR_GRASS.get().asItem(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.WARPED_MOSS.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndItems.CHORUS_PIE.get(), 1f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndItems.CHORUS_PETAL.get(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.DRIPPING_GLOOPSTONE.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.GLOOPY_BUSH.get().asItem(), 0.5f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.SHINY_SPIREA.get().asItem(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndItems.WARPED_SPORES.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.WARPED_ALGAE.get().asItem(), 0.5f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.SMALL_WARPED_ALGAE.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.WARPED_SPROUTS.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.CRYSTAL_FLOWER.get().asItem(), 1f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndItems.WARPED_BERRIES.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.GLOOPY_TENDRILS.get().asItem(), 0.3f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.WARPED_BUSH.get().asItem(), 0.5f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.WARPED_SQUASH.get().asItem(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndItems.WARPED_SQUASH_WEDGE.get(), 0.5f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.SMALL_WARPED_SQUASH.get().asItem(), 0.5f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndItems.GLOOPILON_SLICE.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UnusualEndBlocks.GLOOPILON_SEEDS.get().asItem(), 0.85f);
     }
 
     @SubscribeEvent

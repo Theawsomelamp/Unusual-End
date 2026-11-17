@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 
 public abstract class SpiritMaliceItem extends ArmorItem {
 	public SpiritMaliceItem(ArmorItem.Type type, Item.Properties properties) {
-		super(ModArmorMaterials.SPIRIT_ARMOR_MATERIAL, type, properties);
+		super(ModArmorMaterials.SPIRIT_ARMOR_MATERIAL, type, properties.stacksTo(1));
 	}
 
 	public static class Helmet extends SpiritMaliceItem {
@@ -54,7 +54,7 @@ public abstract class SpiritMaliceItem extends ArmorItem {
 		@Override
 		public void appendHoverText(ItemStack itemstack, TooltipContext context, List<Component> list, TooltipFlag flag) {
 			super.appendHoverText(itemstack, context, list, flag);
-			list.add(Component.literal("\u00A77Malice"));
+			list.add(Component.translatable("tooltip.unusualend.spirit_malice.0"));
 			list.add(Component.translatable("lore.unusualend.mask_1").withStyle(ChatFormatting.BLUE));
 			list.add(Component.translatable("lore.unusualend.mask_2").withStyle(ChatFormatting.BLUE));
 		}

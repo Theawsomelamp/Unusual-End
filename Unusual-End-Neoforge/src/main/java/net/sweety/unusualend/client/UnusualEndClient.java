@@ -1,7 +1,4 @@
 
-/*
- *    MCreator note: This file will be REGENERATED on each build.
- */
 package net.sweety.unusualend.client;
 
 import custom.sweety.unusualend.block.entity.renderer.AncientPodiumEntityRenderer;
@@ -31,10 +28,10 @@ import net.sweety.unusualend.client.particle.CitrineShineParticle;
 import net.sweety.unusualend.client.particle.PinkFlameParticle;
 import net.sweety.unusualend.client.particle.WarpedBubblesParticle;
 import net.sweety.unusualend.client.renderer.*;
-import net.sweety.unusualend.init.UnusualEndItems;
-import net.sweety.unusualend.init.UnusualEndMiscRegister;
 import net.sweety.unusualend.init.UnusualEndBlockEntities;
 import net.sweety.unusualend.init.UnusualEndEntities;
+import net.sweety.unusualend.init.UnusualEndItems;
+import net.sweety.unusualend.init.UnusualEndMiscRegister;
 import net.sweety.unusualend.procedures.CrystalCatalystPropertyValueProviderProcedure;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

@@ -136,7 +136,6 @@ public class EndstoneGolemEntity extends Monster {
 		if (damagesource.is(DamageTypes.IN_FIRE))
 			return false;
 		if (damagesource.getDirectEntity() instanceof AbstractArrow)
-			//return super.hurt(damagesource, 1);
 			return false;
 		if (damagesource.getDirectEntity() instanceof ThrownPotion || damagesource.getDirectEntity() instanceof AreaEffectCloud)
 			return false;
@@ -174,7 +173,7 @@ public class EndstoneGolemEntity extends Monster {
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		EndstoneGolemEntityDiesProcedure.execute(this,this.level(), this.getX(), this.getY(), this.getZ());
+		EndstoneGolemEntityDiesProcedure.execute(this);
 	}
 
 	@Override
