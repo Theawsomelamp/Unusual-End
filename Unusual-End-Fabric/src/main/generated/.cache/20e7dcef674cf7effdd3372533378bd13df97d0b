@@ -1,7 +1,25 @@
-// 1.20.1	2026-09-03T21:35:28.185154043	Unusual End/Tags for minecraft:block
-00babf93616b0f689ca98628b278900be9e13c9b data/minecraft/tags/blocks/mineable/pickaxe.json
-920c22af7e7a20aeba70d659d4502e797c8dc9c9 data/minecraft/tags/blocks/walls.json
-dc01321d8d6ed08caafa84f3452951a852f4bf9c data/minecraft/tags/blocks/slabs.json
-e242ee729e2b3590607c967abd7d4bd09b2e6595 data/unusualend/tags/blocks/end_soils.json
-d9a5c811790e8d5f73418057765ff2cd375a7b0b data/minecraft/tags/blocks/stairs.json
+// 1.20.1	2026-11-19T09:30:06.217523916	Unusual End/Tags for minecraft:block
+4329861ffd10df34a5a0c108ad8875a628d68411 data/minecraft/tags/blocks/wooden_stairs.json
+e137748a2714fcb848b258cca9b0b8859456e479 data/minecraft/tags/blocks/fence_gates.json
+5ae1285d66a547ad8a241777dfec3f8aee029612 data/minecraft/tags/blocks/fences.json
+3997cb2dbd1e4aa0711f681bf8a734c717f16961 data/minecraft/tags/blocks/small_flowers.json
+27e0902f73fef141ba4642636ae90b1cc42f06c6 data/minecraft/tags/blocks/slabs.json
+07ce66f03475293a15e4b073bc6c75a055f9fe39 data/minecraft/tags/blocks/wooden_buttons.json
+54655344af18f5749954a5bd12fb4c20ecf31a3c data/minecraft/tags/blocks/wooden_doors.json
+232c7d6248df37b1b743370d0f76a4fc410f92a4 data/minecraft/tags/blocks/mineable/axe.json
+8cf892633751605373c974b5d4b2804af60b54f5 data/minecraft/tags/blocks/walls.json
+9fb73d6fafbe865330c0eae3ac81b206571f72d0 data/minecraft/tags/blocks/wooden_pressure_plates.json
+22fef6a3a8ea9f5ad7c49fb823dc6de45a5c415d data/minecraft/tags/blocks/wooden_trapdoors.json
+2e583bff5cba22752ff92be108f0b865c607e7e5 data/minecraft/tags/blocks/tall_flowers.json
+da1ac4e8e63b9a071fa4847e70efdbdc5754ad70 data/c/tags/blocks/glass_panes.json
+203d6260b2541d1e924865778edfdb730be91f46 data/c/tags/blocks/glass_blocks.json
+b020d9a498566f977acdfc6fca94b1482a44d437 data/minecraft/tags/blocks/planks.json
+952d1080dcb11ea81c453a8874e64c370ea3d8c5 data/minecraft/tags/blocks/logs.json
+f5a6ad5468d14402ca0780594c98bb741e78ada2 data/unusualend/tags/blocks/end_soils.json
+9018d5b59b6ffcebdc95d09144d12e7a19128de8 data/minecraft/tags/blocks/stairs.json
+6bb80c4ecd0b2fc31e6bd1b2bc23b98504204e78 data/minecraft/tags/blocks/flowers.json
 7bb5639c801d913d3a37331f8f691278506d5756 data/unusualend/tags/blocks/endstone_bricks.json
+555a304598ac0c0658551b2acdd8110827f26e1f data/minecraft/tags/blocks/crops.json
+f54fe9bec73cc2a16c626240123437c9498a88fa data/minecraft/tags/blocks/mineable/pickaxe.json
+72188d9e8ff2836a4e334862175b6937b39aeacc data/minecraft/tags/blocks/mineable/hoe.json
+f2b086954f166310db684393c3f8464772009bfd data/minecraft/tags/blocks/wooden_slabs.json

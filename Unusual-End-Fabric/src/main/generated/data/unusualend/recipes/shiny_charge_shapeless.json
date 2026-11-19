@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:shiny_crystal"
+    },
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "unusualend:enderbulb_lens"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "unusualend:shiny_charge"
+  }
+}

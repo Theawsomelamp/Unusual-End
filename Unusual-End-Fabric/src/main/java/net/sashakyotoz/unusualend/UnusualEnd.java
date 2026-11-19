@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.sashakyotoz.unusualend.common.items.ModItemGroups;
 import net.sashakyotoz.unusualend.common.items.ModItems;
 import net.sashakyotoz.unusualend.common.misc.ModParticleTypes;
+import net.sashakyotoz.unusualend.common.misc.ModSounds;
 import net.sashakyotoz.unusualend.common.world.ModFeatures;
 import net.sashakyotoz.unusualend.common.entity.ModEntities;
 import org.slf4j.Logger;
@@ -31,6 +32,7 @@ public class UnusualEnd implements ModInitializer {
         ModEffects.register();
         ModEnchantments.register();
         ModParticleTypes.register();
+        ModSounds.register();
         ModFeatures.register();
 
         UnusualEndDataGenerator.registerBurnable();

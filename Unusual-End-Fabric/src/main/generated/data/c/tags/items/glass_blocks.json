@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "unusualend:cracked_lens_hardglass",
+    "unusualend:lens_hardglass",
     "unusualend:chiseled_glass"
   ]
 }

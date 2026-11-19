@@ -6,7 +6,8 @@
   "mixins": [
     "ChorusPlantBlockMixin",
     "EndermanEntityMixin",
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
     "InGameHudMixin"

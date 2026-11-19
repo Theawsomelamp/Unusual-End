@@ -1,7 +1,33 @@
-// 1.20.1	2026-09-03T21:35:28.179167161	Unusual End/Tags for minecraft:item
-b2b4536e518655db699c09f7f59f3213f311afea data/minecraft/tags/items/axes.json
+// 1.20.1	2026-11-19T09:30:06.209724439	Unusual End/Tags for minecraft:item
+e137748a2714fcb848b258cca9b0b8859456e479 data/minecraft/tags/items/fence_gates.json
+5ba9e57efa2cab88b7865ea5019eb3e20d561f6a data/c/tags/items/nuggets.json
+07ce66f03475293a15e4b073bc6c75a055f9fe39 data/minecraft/tags/items/wooden_buttons.json
+22fef6a3a8ea9f5ad7c49fb823dc6de45a5c415d data/minecraft/tags/items/wooden_trapdoors.json
+4329861ffd10df34a5a0c108ad8875a628d68411 data/minecraft/tags/items/wooden_stairs.json
+c9e52af45fc348ba8e040e88270aa6d4942a66e5 data/c/tags/items/eggs.json
+dfc0e184d3b2f207ebdc280b8982a9524ce68fc5 data/minecraft/tags/items/tools.json
+31cec945a28d9ad6dc9ecb4183a04103aa90f5b7 data/minecraft/tags/items/arrows.json
+504280cdf24587065759c30f1bc23505abdfdbcd data/minecraft/tags/items/music_discs.json
 7e096c5ee0f8c968398dba8ddd8f99bac5e3a8a4 data/minecraft/tags/items/shovels.json
-4b262f3b821ff021f2f3eaeefb87f63234293c64 data/minecraft/tags/items/swords.json
-2a1e3fecd29dae9bdcaf62e560aa8c6fcc43104b data/minecraft/tags/items/trimmable_armor.json
+8ed3abbd08f9af34cd00f61d1e0338b7b571ca3c data/unusualend/tags/items/enderling_mask.json
+77c99d5641951a257ad9c796b8714aa05a07729c data/minecraft/tags/items/swords.json
+54655344af18f5749954a5bd12fb4c20ecf31a3c data/minecraft/tags/items/wooden_doors.json
+9fb73d6fafbe865330c0eae3ac81b206571f72d0 data/minecraft/tags/items/wooden_pressure_plates.json
+642e0228df5802d56be163eed353a099fbd120d4 data/minecraft/tags/items/trim_materials.json
 b2be809ec9110f373bfeeca39b3420e25fb53dc1 data/minecraft/tags/items/hoes.json
+b020d9a498566f977acdfc6fca94b1482a44d437 data/minecraft/tags/items/planks.json
+2a1e3fecd29dae9bdcaf62e560aa8c6fcc43104b data/minecraft/tags/items/trimmable_armor.json
+203d6260b2541d1e924865778edfdb730be91f46 data/c/tags/items/glass_blocks.json
+642e0228df5802d56be163eed353a099fbd120d4 data/minecraft/tags/items/beacon_payment_items.json
+c5ca6f7e0415dc00ca45336e0564ecc6a8471500 data/c/tags/items/shields.json
+f2b086954f166310db684393c3f8464772009bfd data/minecraft/tags/items/wooden_slabs.json
+7e25735b6276bd81260d998028272bbf0e9d1884 data/c/tags/items/gems.json
 bf7792abb378658bf08498fbfe29945f1b21a549 data/minecraft/tags/items/pickaxes.json
+952d1080dcb11ea81c453a8874e64c370ea3d8c5 data/minecraft/tags/items/logs.json
+b2b4536e518655db699c09f7f59f3213f311afea data/minecraft/tags/items/axes.json
+a8ec46c3ccd7584917032c7ce9ed125e46947f6e data/c/tags/items/ender_pearls.json
+6e80f34e1c24a3fbc0a3a270aa6388bf87b3df8d data/unusualend/tags/items/chorus_flowers.json
+f05874bb7a4e9dd21bd3250e017df0f799ef4922 data/unusualend/tags/items/blob_loot.json
+5ae1285d66a547ad8a241777dfec3f8aee029612 data/minecraft/tags/items/fences.json
+ff1c4b5c4a854bc5dfd9949732d049816c84e2c1 data/c/tags/items/ingots.json
+da1ac4e8e63b9a071fa4847e70efdbdc5754ad70 data/c/tags/items/glass_panes.json

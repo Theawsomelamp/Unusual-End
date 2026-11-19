@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "unusualend:block/charged_gloopstone_top",
+    "side": "unusualend:block/charged_gloopstone"
+  }
+}

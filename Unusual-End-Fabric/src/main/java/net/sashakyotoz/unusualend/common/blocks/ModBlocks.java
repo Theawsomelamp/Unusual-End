@@ -13,6 +13,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.sashakyotoz.unusualend.UnusualEnd;
 import net.sashakyotoz.unusualend.common.ModRegistry;
 import net.sashakyotoz.unusualend.common.blocks.custom.*;
@@ -50,11 +51,21 @@ public class ModBlocks {
     public static final Block FIREFLY_BULB = ModRegistry.ofBlock("firefly_bulb",
             new Block(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.YELLOW).sounds(BlockSoundGroup.SLIME).strength(0.15f, 1f).luminance(15).slipperiness(0.9f).jumpVelocityMultiplier(0.9f).nonOpaque())).drop().translucent().build();
     public static final Block SPECTRAL_BLOCK = ModRegistry.ofDescriptiveBlock("spectral_block",
-            new CustomCollisionBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.WOOL).hardness(0.2f).resistance(10f))).tool("_pickaxe").drop().translucent().model().build();
+            new CustomCollisionBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.WOOL).hardness(0.2f).resistance(10f), false)).tool("_pickaxe").drop().translucent().model().build();
     public static final Block PHANTOM_MEMBRANE_BLOCK = ModRegistry.ofDescriptiveBlock("phantom_membrane_block",
-            new CustomCollisionBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).slipperiness(0.85f).jumpVelocityMultiplier(0.9f).hardness(0.2f).resistance(3f).pistonBehavior(PistonBehavior.DESTROY))).drop().translucent().tool("_pickaxe").model().build();
+            new CustomCollisionBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).slipperiness(0.85f).jumpVelocityMultiplier(0.9f).hardness(0.2f).resistance(3f).pistonBehavior(PistonBehavior.DESTROY), true)).drop().translucent().tool("_pickaxe").model().build();
     public static final Block DRAGLING_PLUSH = ModRegistry.ofBlock("dragling_plush",
             new DraglingPlushBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOL).strength(0.5f, 10f).noCollision().nonOpaque())).drop().cutout().build();
+
+    public static final Block GLOOPILON_SEEDS = ModRegistry.ofBlock("gloopilon_seeds",
+            new GloopilonSproutBlock(FabricBlockSettings.create().instrument(Instrument.HAT).mapColor(MapColor.MAGENTA).sounds(BlockSoundGroup.CORAL).breakInstantly().noCollision().pistonBehavior(PistonBehavior.DESTROY), StatusEffects.SPEED, 100,  6.0f, 16.0f)).tag(BlockTags.CROPS).cutout().compostable(0.85f).build();
+
+    public static final Block CRACKED_LENS_HARDGLASS = ModRegistry.ofBlock("cracked_lens_hardglass",
+            new GlassBlock(FabricBlockSettings.create().instrument(Instrument.HAT).mapColor(MapColor.RED).sounds(BlockSoundGroup.GLASS).strength(0.4f, 18.0f).nonOpaque())).drop_silk().translucent().model().tag(ConventionalBlockTags.GLASS_BLOCKS).tagitem(ConventionalItemTags.GLASS_BLOCKS).build();
+    public static final Block LENS_HARDGLASS = ModRegistry.ofDescriptiveBlock("lens_hardglass",
+            new HardGlassBlock(FabricBlockSettings.create().instrument(Instrument.HAT).mapColor(MapColor.RED).sounds(BlockSoundGroup.GLASS).strength(0.5f, 15.0f).nonOpaque(), CRACKED_LENS_HARDGLASS)).drop_silk().translucent().model().tag(ConventionalBlockTags.GLASS_BLOCKS).tagitem(ConventionalItemTags.GLASS_BLOCKS).build();
+    public static final Block ENDERMITE_EGGS = ModRegistry.ofBlock("endermite_eggs",
+            new EndermiteEggBlock(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.PINK).sounds(BlockSoundGroup.SHROOMLIGHT).strength(0.6f, 10f).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY))).drop_silk().tool("_pickaxe").build();
 
     // Enderblob Blocks
     public static final Block ENDERBLOB_BLOCK = ModRegistry.ofBlock("enderblob_block",
@@ -86,9 +97,11 @@ public class ModBlocks {
     public static final Block SHINY_CRYSTAL_BRICKS_SLAB = ModRegistry.ofBlock("shiny_crystal_bricks_slab",
             new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.PINK).sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(0.85f, 4f).luminance(5).requiresTool())).drop().tag(BlockTags.SLABS).tool("_pickaxe").build();
     public static final Block CRYSTAL_WALL_TORCH = ModRegistry.ofBlock("crystal_wall_torch",
-            new CrystalWallTorchBlock(FabricBlockSettings.create().instrument(Instrument.BASS).mapColor(MapColor.PURPLE).strength(0f, 5f).noCollision().luminance(14), ModParticleTypes.PINK_FLAME), null).cutout().build();
+            new CrystalWallTorchBlock(FabricBlockSettings.create().instrument(Instrument.BASS).mapColor(MapColor.PURPLE).strength(0f, 5f).noCollision().luminance(14).pistonBehavior(PistonBehavior.DESTROY), ModParticleTypes.PINK_FLAME), null).cutout().build();
     public static final Block CRYSTAL_TORCH = ModRegistry.ofVerticallyAttachableBlock("crystal_torch",
-            new CrystalTorchBlock(FabricBlockSettings.create().instrument(Instrument.BASS).mapColor(MapColor.PURPLE).strength(0f, 5f).noCollision().luminance(14), ModParticleTypes.PINK_FLAME), CRYSTAL_WALL_TORCH).drop().cutout().build();
+            new CrystalTorchBlock(FabricBlockSettings.create().instrument(Instrument.BASS).mapColor(MapColor.PURPLE).strength(0f, 5f).noCollision().luminance(14).pistonBehavior(PistonBehavior.DESTROY), ModParticleTypes.PINK_FLAME), CRYSTAL_WALL_TORCH).drop().cutout().build();
+    public static final Block HEALING_LANTERN = ModRegistry.ofBlock("healing_lantern",
+            new HealingLanternBlock(FabricBlockSettings.create().instrument(Instrument.BASS).mapColor(MapColor.PURPLE).sounds(BlockSoundGroup.LANTERN).strength(3.5f, 5f).luminance(15).ticksRandomly().pistonBehavior(PistonBehavior.DESTROY))).drop().cutout().tool("_pickaxe").build();
 
     // Plants
     public static final Block CHORUS_ROOTS = ModRegistry.ofBlock("chorus_roots",
@@ -208,8 +221,12 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_DULL_PINK).sounds(BlockSoundGroup.CORAL).strength(0.95f, 5f).requiresTool())).drop().model().tool("_pickaxe").build();
     public static final Block CHISELED_GLOOPSTONE_BRICKS = ModRegistry.ofBlock("chiseled_gloopstone_bricks",
             new Block(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_DULL_PINK).sounds(BlockSoundGroup.CORAL).strength(0.95f, 5f).requiresTool())).drop().model().tool("_pickaxe").build();
+    public static final Block GLOOPSTONE_LAMP = ModRegistry.ofBlock("gloopstone_lamp",
+            new GloopstoneLampBlock(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_DULL_PINK).sounds(BlockSoundGroup.CORAL).strength(0.95f, 5f).luminance((state) -> (Boolean)state.get(Properties.LIT) ? 13 : 0))).drop().tool("_pickaxe").build();
     public static final Block GLOOPSTONE_LANTERN = ModRegistry.ofBlock("gloopstone_lantern",
             new Block(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_DULL_PINK).sounds(BlockSoundGroup.CORAL).strength(0.95f, 5f).luminance(15).requiresTool())).drop().model().tool("_pickaxe").build();
+    public static final Block CHARGED_GLOOPSTONE = ModRegistry.ofDescriptiveBlock("charged_gloopstone",
+            new PillarBlock(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_DULL_PINK).sounds(BlockSoundGroup.CORAL).strength(0.95f, 5f).luminance(5).velocityMultiplier(1.5f))).drop().model(ModRegistry.Models.PILLAR).tool("_pickaxe").build();
     public static final Block GLOOPY_URN = ModRegistry.ofBlock("gloopy_urn",
             new GloopyUrnBlock(FabricBlockSettings.create().instrument(Instrument.BASEDRUM).mapColor(MapColor.DARK_DULL_PINK).sounds(BlockSoundGroup.MUD_BRICKS).strength(0.75f, 5f).nonOpaque().pistonBehavior(PistonBehavior.DESTROY))).tool("_pickaxe").build();
 

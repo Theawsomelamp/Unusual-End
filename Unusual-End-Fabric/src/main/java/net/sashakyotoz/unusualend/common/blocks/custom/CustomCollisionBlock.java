@@ -11,22 +11,23 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.sashakyotoz.unusualend.common.blocks.ModBlocks;
 
 public class CustomCollisionBlock extends Block {
-    public CustomCollisionBlock(Settings settings) {
+    private final boolean player;
+
+    public CustomCollisionBlock(Settings settings, boolean player) {
         super(settings);
+        this.player = player;
     }
 
     @Override
     @SuppressWarnings("deprecation")
-    // Probably best to separate this into 2 blocks
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.isOf(ModBlocks.SPECTRAL_BLOCK))
+        if (!this.player) {
             return ((EntityShapeContext) context).getEntity() instanceof PlayerEntity ? VoxelShapes.empty() : getOutlineShape(state, world, pos, context);
-        if (state.isOf(ModBlocks.PHANTOM_MEMBRANE_BLOCK))
+        } else {
             return ((EntityShapeContext) context).getEntity() instanceof PlayerEntity ? getOutlineShape(state, world, pos, context) : VoxelShapes.empty();
-        return super.getOutlineShape(state, world, pos, context);
+        }
     }
 
     @Override
@@ -38,7 +39,7 @@ public class CustomCollisionBlock extends Block {
     @Override
     @SuppressWarnings("deprecation")
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (state.isOf(ModBlocks.SPECTRAL_BLOCK) && entity instanceof PlayerEntity player)
+        if (!this.player && entity instanceof PlayerEntity player)
             player.fallDistance = 0;
     }
 }

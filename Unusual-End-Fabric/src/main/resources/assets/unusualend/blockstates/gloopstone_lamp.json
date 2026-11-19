@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "unusualend:block/gloopstone_lamp"
+    },
+    "lit=true": {
+      "model": "unusualend:block/gloopstone_lamp_on"
+    }
+  }
+}

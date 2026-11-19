@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "enderblob_shield",
+  "key": {
+    "A": {
+      "item": "unusualend:end_blob"
+    },
+    "B": {
+      "item": "unusualend:enderblob_block"
+    },
+    "C": {
+      "item": "minecraft:shield"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "result": {
+    "item": "unusualend:enderblob_shield"
+  },
+  "show_notification": true
+}

@@ -93,6 +93,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, Registries.ITEM.getId(result.asItem()));
     }
 
+    private static void offerAlternateEdgesWithCenter(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible result, int count,
+                                           ItemConvertible a, ItemConvertible b, ItemConvertible c) {
+        ShapedRecipeJsonBuilder.create(category, result, count)
+                .pattern("ABA")
+                .pattern("BCB")
+                .pattern("ABA")
+                .input('A', a).input('B', b).input('C', c)
+                .criterion(hasItem(a), conditionsFromItem(a))
+                .criterion(hasItem(b), conditionsFromItem(b))
+                .criterion(hasItem(c), conditionsFromItem(c))
+                .group(Registries.ITEM.getId(result.asItem()).getPath())
+                .offerTo(exporter, Registries.ITEM.getId(result.asItem()));
+    }
+
     private static void offerArrowRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible result, int count,
                                            ItemConvertible a, ItemConvertible b, ItemConvertible c) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, result, count)
@@ -194,6 +208,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter,RecipeCategory.MISC, ModItems.PRISMALITE_SHARD, RecipeCategory.MISC, ModItems.PRISMALITE_GEM);
         offerCompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHORUS_CANE_BLOCK, ModBlocks.CHORUS_CANE);
         offerCompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PRISMALITE_BLOCK, ModItems.PRISMALITE_GEM);
+        offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.MUSIC_DISC_FLYING_SHIPS, ModItems.DISC_FRAGMENT_FLYING_SHIPS);
 
         offerShapelessRecipe(exporter, Items.BLACK_DYE, ModItems.SPECTRAL_SCRAP, "black_dye", 1);
         offerShapelessRecipe(exporter, Items.MAGENTA_DYE, Items.CHORUS_FRUIT, "magenta_dye", 1);
@@ -219,6 +234,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerMultiItemShapelessRecipe(exporter, ModItems.ENDER_STEW, List.of(Items.CHORUS_FRUIT, ModBlocks.CHORUS_FUNGUS, ModBlocks.CHORUS_ROOTS, Items.BOWL, ModItems.END_BLOB), null, 1);
         offerMultiItemShapelessRecipe(exporter, ModBlocks.BOUNCY_GLOOPSLATE, List.of(ModBlocks.GLOOPSLATE, ModItems.END_BLOB), null, 1);
         offerMultiItemShapelessRecipe(exporter, ModBlocks.BOUNCY_GLOOPSTONE, List.of(ModBlocks.GLOOPSTONE, ModItems.END_BLOB), null, 1);
+        offerMultiItemShapelessRecipe(exporter, ModItems.SHINY_CHARGE, List.of(ModItems.SHINY_CRYSTAL, Items.STRING, Items.GUNPOWDER, ModItems.ENDERBULB_LENS), null, 3);
 
         offerShapelessWithDuplicatesRecipe(exporter, Items.PAPER, Map.of(ModItems.CHORUS_PETAL, 3), null, 1);
         offerShapelessWithDuplicatesRecipe(exporter, ModItems.CHORUS_JUICE, Map.of(Items.GLASS_BOTTLE, 1, Items.CHORUS_FRUIT, 3), null, 1);
@@ -260,12 +276,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerTilesRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOPSTONE_LANTERN, 1, ModBlocks.POLISHED_GLOOPSTONE, Ingredient.ofItems(ModItems.SHINY_CRYSTAL));
         offerTilesRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOPSLATE, 4, ModBlocks.RAW_PURPUR_BLOCK, Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, UnusualEnd.makeID("blob_loot"))));
         offerTilesRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOOPSTONE, 4, ModBlocks.GLOOPSLATE, Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, UnusualEnd.makeID("blob_loot"))));
+        offerTilesRecipe(exporter, RecipeCategory.MISC, ModBlocks.GLOOPILON_SEEDS, 1, ModItems.GLOOPILON_SLICE, Ingredient.ofItems(Items.BEETROOT_SEEDS));
 
 
         offerCompassRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_PURPUR_TILES_LANTERN, 4, ModBlocks.FIREFLY_BULB, ModBlocks.POLISHED_PURPUR_TILES);
         offerCompassRecipe(exporter, RecipeCategory.COMBAT, ModItems.WANDERING_PEARL, 1, Items.ENDER_PEARL, Items.CHORUS_FRUIT);
         offerCompassRecipe(exporter, RecipeCategory.COMBAT, ModItems.PHANTOM_ARROW, 1, Items.ARROW, Items.PHANTOM_MEMBRANE);
         offerCompassRecipe(exporter, RecipeCategory.MISC, ModBlocks.DRAGLING_PLUSH, 1, Items.STRING, ModItems.SPECTRAL_SCRAP);
+
+        offerAlternateEdgesWithCenter(exporter, RecipeCategory.REDSTONE, ModBlocks.GLOOPSTONE_LAMP, 1, ModBlocks.POLISHED_GLOOPSTONE, Items.REDSTONE, ModBlocks.SHINY_CRYSTAL_BLOCK);
+        offerAlternateEdgesWithCenter(exporter, RecipeCategory.COMBAT, ModItems.BOUNCY_DAGGER, 1, ModItems.END_BLOB, ModBlocks.ENDERBLOB_BLOCK, Items.WOODEN_SWORD);
+        offerAlternateEdgesWithCenter(exporter, RecipeCategory.COMBAT, ModItems.ENDERBLOB_SHIELD, 1, ModItems.END_BLOB, ModBlocks.ENDERBLOB_BLOCK, Items.SHIELD);
 
         offerArrowRecipe(exporter, Items.MAGENTA_CANDLE, 1, ModBlocks.CHORUS_ROOTS, ModItems.END_BLOB, ModBlocks.GLOOPSLATE);
         offerArrowRecipe(exporter, Items.PURPLE_CANDLE, 1, ModBlocks.CHORUS_ROOTS, ModItems.END_BLOB, ModBlocks.GLOOPSTONE);
@@ -289,11 +310,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerCatalystConversionRecipe(exporter, RecipeCategory.MISC, Blocks.FIRE_CORAL, ModItems.SHINY_CRYSTAL, Blocks.DEAD_FIRE_CORAL);
         offerCatalystConversionRecipe(exporter, RecipeCategory.MISC, Blocks.HORN_CORAL, ModItems.SHINY_CRYSTAL, Blocks.DEAD_HORN_CORAL);
         offerCatalystConversionRecipe(exporter, RecipeCategory.MISC, ModBlocks.CHORUS_ROOTS, ModItems.SHINY_CRYSTAL, Blocks.WARPED_ROOTS);
+        offerCatalystConversionRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.LENS_HARDGLASS, ModItems.ENDERBULB_LENS, Blocks.TINTED_GLASS);
 
         offerSmelting(exporter, List.of(Blocks.END_STONE_BRICKS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.WEAK_END_STONE_BRICKS, 0.1F, 200, null);
         offerSmelting(exporter, List.of(ModItems.END_BLOB), RecipeCategory.MISC, ModItems.END_BLOB_JELLY, 0.35F, 200, null);
+        offerSmelting(exporter, List.of(ModItems.GLOOPILON_SLICE), RecipeCategory.MISC, ModItems.PRISMALITE_SHARD, 1.0F, 200, null);
 
         offerBlasting(exporter, List.of(ModBlocks.CRYSTAL_FLOWER), RecipeCategory.MISC, ModItems.SHINY_CRYSTAL, 0.2F, 100, null);
+        offerBlasting(exporter, List.of(ModItems.GLOOPILON_SLICE), RecipeCategory.MISC, ModItems.PRISMALITE_SHARD, 1.0F, 100, null);
 
         //Stone Zone
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_ENDSTONE_BUILDER, Blocks.END_STONE);
@@ -427,6 +451,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.CHORUS_ROOTS), conditionsFromItem(ModBlocks.CHORUS_ROOTS))
                 .criterion(hasItem(ModBlocks.CHORUS_CANE_FLOWER), conditionsFromItem(ModBlocks.CHORUS_CANE_FLOWER))
                 .offerTo(exporter,getItemPath(Items.STRING) + "_from_chorus_roots" );
+
+        // Charged Gloopstone
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHARGED_GLOOPSTONE, 6)
+                .input('A', ModBlocks.POLISHED_GLOOPSTONE).input('B', ModBlocks.POLISHED_GLOOPSLATE).input('C', ModItems.PRISMALITE_SHARD)
+                .pattern("ACA")
+                .pattern("ACA")
+                .pattern("BCB")
+                .criterion(hasItem(ModBlocks.POLISHED_GLOOPSTONE), conditionsFromItem(ModBlocks.POLISHED_GLOOPSTONE))
+                .criterion(hasItem(ModItems.PRISMALITE_SHARD), conditionsFromItem(ModItems.PRISMALITE_SHARD))
+                .offerTo(exporter);
+
+        // Healing Lantern
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HEALING_LANTERN, 1)
+                .input('A', Items.IRON_NUGGET).input('B', Items.IRON_INGOT).input('C', ModItems.ENDERBULB_LENS).input('D', ModItems.SHINY_CRYSTAL)
+                .pattern("ABA")
+                .pattern("CDC")
+                .pattern("AAA")
+                .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+                .criterion(hasItem(ModItems.ENDERBULB_LENS), conditionsFromItem(ModItems.ENDERBULB_LENS))
+                .criterion(hasItem(ModItems.SHINY_CRYSTAL), conditionsFromItem(ModItems.SHINY_CRYSTAL))
+                .offerTo(exporter);
 
         // Floating Pouch
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FLOATING_POUCH)

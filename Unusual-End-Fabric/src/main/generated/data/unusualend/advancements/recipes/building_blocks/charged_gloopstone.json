@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_gloopstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:polished_gloopstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_prismalite_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:prismalite_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unusualend:charged_gloopstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_gloopstone",
+      "has_prismalite_shard",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unusualend:charged_gloopstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

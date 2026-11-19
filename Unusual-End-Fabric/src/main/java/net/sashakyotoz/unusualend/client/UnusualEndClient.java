@@ -29,6 +29,7 @@ public class UnusualEndClient implements ClientModInitializer {
         ModParticles.register();
 
         EntityRendererRegistry.register(ModEntities.WANDERING_PEARL, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SHINY_CHARGE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.PHANTOM_ARROW, PhantomArrowRenderer::new);
     }
 }

@@ -1,0 +1,110 @@
+{
+  "variants": {
+    "face=floor,facing=north,cracked=false": {
+      "model": "unusualend:block/endermite_eggs"
+    },
+    "face=floor,facing=east,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "y": 90
+    },
+    "face=floor,facing=south,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "y": 180
+    },
+    "face=floor,facing=west,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "y": 270
+    },
+    "face=wall,facing=north,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 90
+    },
+    "face=wall,facing=east,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=south,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 90,
+      "y": 270
+    },
+    "face=ceiling,facing=north,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=east,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=south,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 180
+    },
+    "face=ceiling,facing=west,cracked=false": {
+      "model": "unusualend:block/endermite_eggs",
+      "x": 180,
+      "y": 90
+    },
+    "face=floor,facing=north,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs"
+    },
+    "face=floor,facing=east,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "y": 90
+    },
+    "face=floor,facing=south,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "y": 180
+    },
+    "face=floor,facing=west,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "y": 270
+    },
+    "face=wall,facing=north,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 90
+    },
+    "face=wall,facing=east,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=south,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 90,
+      "y": 270
+    },
+    "face=ceiling,facing=north,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=east,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=south,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 180
+    },
+    "face=ceiling,facing=west,cracked=true": {
+      "model": "unusualend:block/cracked_endermite_eggs",
+      "x": 180,
+      "y": 90
+    }
+  }
+}

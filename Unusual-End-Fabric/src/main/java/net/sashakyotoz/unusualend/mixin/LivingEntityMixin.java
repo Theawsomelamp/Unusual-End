@@ -5,6 +5,8 @@ import net.minecraft.advancement.AdvancementProgress;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
@@ -16,13 +18,18 @@ import net.sashakyotoz.unusualend.UnusualEnd;
 import net.sashakyotoz.unusualend.common.effects.ModEffects;
 import net.sashakyotoz.unusualend.common.items.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
+    @Shadow
+    protected ItemStack activeItemStack;
+
     @Inject(method = "getJumpBoostVelocityModifier", at = @At("RETURN"), cancellable = true)
     private void spectralStrideJumpBoost(CallbackInfoReturnable<Float> cir) {
         LivingEntity entity = ((LivingEntity) (Object) this);
@@ -77,6 +84,18 @@ public class LivingEntityMixin {
                 }
             }
 
+        }
+    }
+
+    @Inject(method = "takeShieldHit", at = @At(value = "TAIL"))
+    private void blobShieldKnockback(LivingEntity attacker, CallbackInfo ci) {
+        if (activeItemStack.isOf(ModItems.ENDERBLOB_SHIELD)) {
+            if (attacker instanceof PlayerEntity && !UnusualEnd.CONFIG.blobShieldPvp) return;
+            LivingEntity entity = ((LivingEntity) (Object) this);
+            //Wasn't sure what the intentional knockback of the shield was, so currently set high to show that it works
+            attacker.takeKnockback(2.0, entity.getX() - attacker.getX(), entity.getZ() - attacker.getZ());
+
+            //Todo: grant advancement
         }
     }
 }

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0,tip=false": {
+      "model": "unusualend:block/gloopilon_seeds"
+    },
+    "age=1,tip=false": {
+      "model": "unusualend:block/gloopilon_stem"
+    },
+    "age=0,tip=true": {
+      "model": "unusualend:block/gloopilon_bulb"
+    },
+    "age=1,tip=true": {
+      "model": "unusualend:block/gloopilon_fruit"
+    }
+  }
+}

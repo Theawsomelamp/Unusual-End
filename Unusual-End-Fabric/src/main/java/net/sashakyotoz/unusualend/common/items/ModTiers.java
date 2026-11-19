@@ -4,7 +4,8 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
 public enum ModTiers implements ToolMaterial {
-    PEARLESCENT(3,1024,8f,3f,16,Ingredient.ofItems(ModItems.PEARLESCENT_INGOT));
+    PEARLESCENT(3,1024,8f,3f,16,Ingredient.ofItems(ModItems.PEARLESCENT_INGOT)),
+    BOUNCY(3,64,8f,3f,5,Ingredient.ofItems(ModItems.END_BLOB));
     private final int durability;
     private final float speed;
     private final float damage;

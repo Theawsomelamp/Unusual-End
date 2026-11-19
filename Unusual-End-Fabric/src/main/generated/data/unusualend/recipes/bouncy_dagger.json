@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "bouncy_dagger",
+  "key": {
+    "A": {
+      "item": "unusualend:end_blob"
+    },
+    "B": {
+      "item": "unusualend:enderblob_block"
+    },
+    "C": {
+      "item": "minecraft:wooden_sword"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "result": {
+    "item": "unusualend:bouncy_dagger"
+  },
+  "show_notification": true
+}

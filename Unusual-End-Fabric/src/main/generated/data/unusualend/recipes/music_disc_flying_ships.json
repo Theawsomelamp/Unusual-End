@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    },
+    {
+      "item": "unusualend:disc_fragment_flying_ships"
+    }
+  ],
+  "result": {
+    "item": "unusualend:music_disc_flying_ships"
+  }
+}

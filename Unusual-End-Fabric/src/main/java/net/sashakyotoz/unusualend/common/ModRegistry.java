@@ -46,6 +46,12 @@ public class ModRegistry {
             return this;
         }
 
+        public BlockBuilder drop_silk() {
+            BLOCK_DROPS.putIfAbsent(this.block, this.block);
+            BLOCK_SILK_DROPS.putIfAbsent(this.block, this.block);
+            return this;
+        }
+
         public BlockBuilder drop_silk(ItemConvertible loot) {
             BLOCK_DROPS.putIfAbsent(this.block, loot);
             BLOCK_SILK_DROPS.putIfAbsent(this.block, loot);

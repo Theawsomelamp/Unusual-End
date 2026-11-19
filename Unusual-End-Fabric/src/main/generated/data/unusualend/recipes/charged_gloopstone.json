@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "unusualend:polished_gloopstone"
+    },
+    "B": {
+      "item": "unusualend:polished_gloopslate"
+    },
+    "C": {
+      "item": "unusualend:prismalite_shard"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "ACA",
+    "BCB"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unusualend:charged_gloopstone"
+  },
+  "show_notification": true
+}

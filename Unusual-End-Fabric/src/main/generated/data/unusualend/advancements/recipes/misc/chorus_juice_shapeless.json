@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_chorus_fruit",
       "has_glass_bottle",
+      "has_chorus_fruit",
       "has_the_recipe"
     ]
   ],

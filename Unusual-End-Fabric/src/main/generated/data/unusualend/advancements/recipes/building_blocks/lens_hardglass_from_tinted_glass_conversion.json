@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enderbulb_lens": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unusualend:enderbulb_lens"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lens_hardglass_from_tinted_glass_conversion"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tinted_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:tinted_glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_enderbulb_lens",
+      "has_tinted_glass",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lens_hardglass_from_tinted_glass_conversion"
+    ]
+  },
+  "sends_telemetry_event": false
+}

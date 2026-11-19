@@ -10,6 +10,8 @@ public class UnusualEndConfig extends WrappedConfig {
     public int maxDamageDodgedWithChorusHelmetTp = 8;
     @Comment("Whether the Crystal Flower should inflict Nausea to entities interacting with it")
     public boolean crystalFlowerNausea = true;
+    @Comment("Whether players will be affected by the Endblob Shield knockback (Multiplayer PvP)")
+    public boolean blobShieldPvp = true;
     @Comment("The amount of time (in ticks) the effects from using a spectral cloth should apply")
     @Comment("20 ticks 1 second, and thus 1200 ticks is 1 minute")
     public int spectralClothEffectTime = 1200;
@@ -18,4 +20,5 @@ public class UnusualEndConfig extends WrappedConfig {
     @Comment("Item cooldowns (in ticks)")
     public int prismaticMirrorCooldown = 6000;
     public int floatingPouchCooldown = 100;
+    public int shinyChargeCooldown = 100;
 }

@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "unusualend:gloopilon_seeds",
+          "properties": {
+            "tip": "false"
+          }
+        },
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "unusualend:gloopilon_seeds"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "unusualend:gloopilon_slice",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "unusualend:gloopilon_seeds",
+              "properties": {
+                "age": "1",
+                "tip": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "unusualend:blocks/gloopilon_seeds"
+}

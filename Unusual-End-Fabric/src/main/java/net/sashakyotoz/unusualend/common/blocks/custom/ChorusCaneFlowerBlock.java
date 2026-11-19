@@ -1,26 +1,15 @@
 package net.sashakyotoz.unusualend.common.blocks.custom;
 
 import net.minecraft.block.*;
-import net.minecraft.block.enums.WallMountLocation;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
-import org.jetbrains.annotations.Nullable;
 
-public class ChorusCaneFlowerBlock extends WallMountedBlock implements Waterloggable {
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
+public class ChorusCaneFlowerBlock extends WaterloggableWallMountedBlock {
     public ChorusCaneFlowerBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((this.stateManager.getDefaultState()).with(WATERLOGGED, false));
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
@@ -45,35 +34,5 @@ public class ChorusCaneFlowerBlock extends WallMountedBlock implements Waterlogg
             };
             case CEILING -> Block.createCuboidShape(4, 8, 4, 12, 16, 12);
         };
-    }
-
-    @Nullable
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        for(Direction direction : ctx.getPlacementDirections()) {
-            BlockState blockState;
-            if (direction.getAxis() == Direction.Axis.Y) {
-                blockState = this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, fluidState.isOf(Fluids.WATER));
-            } else {
-                blockState = this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction.getOpposite()).with(WATERLOGGED, fluidState.isOf(Fluids.WATER));
-            }
-
-            if (blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) {
-                return blockState.with(WATERLOGGED, fluidState.isOf(Fluids.WATER));
-            }
-        }
-
-        return null;
-    }
-
-    @SuppressWarnings("deprecation")
-    public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
-    }
-
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
-        builder.add(FACE);
-        builder.add(FACING);
     }
 }

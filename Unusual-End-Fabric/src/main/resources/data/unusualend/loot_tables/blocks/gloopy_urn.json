@@ -555,7 +555,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "unusualend:cracked_endermite_eggs",
+          "name": "unusualend:endermite_eggs",
           "weight": 2,
           "conditions": [
             {

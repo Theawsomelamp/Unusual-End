@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:tinted_glass"
+    },
+    "X": {
+      "item": "unusualend:enderbulb_lens"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "unusualend:lens_hardglass"
+  },
+  "show_notification": true
+}

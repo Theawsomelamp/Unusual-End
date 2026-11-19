@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "unusualend:chorus_petal"
-    },
-    {
-      "item": "unusualend:chorus_petal"
-    },
-    {
       "item": "unusualend:chorus_juice"
+    },
+    {
+      "item": "unusualend:chorus_petal"
+    },
+    {
+      "item": "unusualend:chorus_petal"
     }
   ],
   "result": {

@@ -44,6 +44,8 @@ public class ModModelProvider extends FabricModelProvider {
             generator.registerTrapdoor(block);
         for (Block block : ModRegistry.getModelList(ModRegistry.Models.FLUID))
             generator.registerSimpleState(block);
+        for (Block block : ModRegistry.getModelList(ModRegistry.Models.BULB))
+            registerRedstoneLamp(generator, block);
         for (Block block : ModRegistry.BLOCK_SETS.keySet()) {
             if (ModRegistry.BLOCK_SETS.get(block).containsKey(ModRegistry.Models.WOOD)) {
                 poollog = generator.registerLog(block);
@@ -133,5 +135,11 @@ public class ModModelProvider extends FabricModelProvider {
                                 )
                                 .coordinate(generator.createUpDefaultFacingVariantMap())
                 );
+    }
+
+    private void registerRedstoneLamp(BlockStateModelGenerator generator, Block block) {
+        Identifier identifier = TexturedModel.CUBE_ALL.upload(block, generator.modelCollector);
+        Identifier identifier2 = generator.createSubModel(block, "_on", Models.CUBE_ALL, TextureMap::all);
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(block).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT, identifier2, identifier)));
     }
 }
